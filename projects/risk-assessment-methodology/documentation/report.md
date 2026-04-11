@@ -2,10 +2,19 @@
 
 # **Risk Assessment Methodologies - Technical Scanning to GRC Analysis**
 
-**Prepared By:**\
-**Ayuba Amadi**
+## Overview
+This document presents a technical-to-GRC risk assessment performed on a vulnerable system using industry-standard tools.
 
-**10 April 2026**
+## Scope
+- Target: Metasploitable 2
+- Environment: Controlled lab environment
+- Tools Used: Nmap, Nikto, Nuclei
+
+## Objectives
+- Identify vulnerabilities
+- Map to business risk
+- Quantify financial impact
+- Recommend treatment strategies
 
 # **Executive Summary**
 
