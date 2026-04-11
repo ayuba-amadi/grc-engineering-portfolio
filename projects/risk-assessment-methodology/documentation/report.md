@@ -1,8 +1,6 @@
 ### **Risk Assessment Report**
 
-# **Lab 1: Risk Assessment Methodologies - Technical Scanning to GRC Analysis**
-
-**GRC103 -- Risk Assessment & Management**
+# **Risk Assessment Methodologies - Technical Scanning to GRC Analysis**
 
 **Prepared By:**\
 **Ayuba Amadi**
@@ -18,23 +16,23 @@ identified on the Metasploitable system, including outdated services,
 weak authentication mechanisms, exposed databases, and known exploitable
 backdoors.
 
-The analysis revealed that several vulnerabilities pose high financial
+The analysis revealed that several vulnerabilities pose a high financial
 and operational risks, with estimated annual losses exceeding \$1
 million for key systems such as databases and authentication services.
-These risks directly impact critical business functions including
+These risks directly impact critical business functions, including
 customer data management, financial transactions, and system
 availability.
 
 By applying structured risk assessment methods, including risk triage,
 quantitative analysis (SLE and ALE), and Business Impact Analysis (BIA),
-the technical findings were translated into measurable business risks.
+The technical findings were translated into measurable business risks.
 Appropriate risk treatment strategies were developed, with a strong
-focus on mitigation through patching, system hardening, and access
+Focus on mitigation through patching, system hardening, and access
 control improvements.
 
-The findings were aligned with recognized industry standards such as the
+The findings were aligned with recognized industry standards, such as the
 National Institute of Standards and Technology Cybersecurity Framework,
-NIST SP 800-53, CIS Controls, and PCI DSS, ensuring that recommendations
+NIST SP 800-53, CIS Controls, and PCI DSS, ensuring that recommendations are followed
 follow accepted best practices.
 
 Overall, this lab highlights the importance of integrating technical
@@ -73,30 +71,12 @@ This command performs the following:
 
 -   -oA: Saves output in three formats (.nmap, .xml, .gnmap)
 
-![](./media/87c19ce3520a823ae0d8b6477bb80fda5820977b.png){width="6.770833333333333in"
-height="2.7708333333333335in"}
-
-![](./media/7189457637ac6f7ee4b34492abe7cdefe3f8bdde.png){width="7.260416666666667in"
-height="3.3854166666666665in"}
-
 ### **HTML Report Generation**
 
 The XML output was converted into a readable HTML report using:
 
 xsltproc -o initial_scan_report.html /usr/share/nmap/nmap.xsl
 initial_scan.xml
-
-![](./media/98188b0eaee2f32bdb55d4846f9e5d501b7ea496.png){width="7.416666666666667in"
-height="1.2916666666666667in"}
-
-![](./media/ead08d2db2ac1eb61fac5165ad0586356f55aa86.png){width="7.604166666666667in"
-height="5.208333333333333in"}
-
-![](./media/20d40f7cf56e09df43bf5165673884119f4a8dd3.png){width="7.822916666666667in"
-height="4.364583333333333in"}![](./media/d528a239980848ec27d4e45f67bdfee016c13eba.png){width="7.791666666666667in"
-height="4.458333333333333in"}![](./media/fd26c5ccc99280bbb5ac49f6b1e0d4d8f8d980e7.png){width="7.84375in"
-height="4.4375in"}![](./media/4456fe6410ef214b428af6c37976d69ea335156e.png){width="7.5in"
-height="4.25in"}
 
 **Findings**
 
@@ -180,18 +160,6 @@ risk assessment activities.
 
 ## **nano initial_scan.nmap**
 
-![](./media/ab26d4acdac3c7af0a80bb514d1917801c0acaf6.png){width="6.96875in"
-height="1.3125in"}
-
-![](./media/575386b5cdef4be7c50671cb3e8253461d9ff881.png){width="7.5in"
-height="6.916666666666667in"}
-
-![](./media/1349b89a3b4f04f5ebe05c8b616b9ac815bff950.png){width="7.5in"
-height="6.916666666666667in"}
-
-![](./media/fbb6305cf51f97491af0e5d2aa45fa2e88bda8a8.png){width="7.5in"
-height="6.916666666666667in"}![](./media/68348947f87229244a1e9dce83f59085a8e2cc9f.png){width="7.5in"
-height="4.84375in"}
 
 ## **Findings**
 
@@ -263,7 +231,7 @@ insecure. This increases the likelihood of successful attacks such as:
 -   Service exploitation
 
 The presence of legacy protocols (Telnet, FTP) and outdated software
-versions shows a lack of proper system hardening and patch management.
+Versions show a lack of proper system hardening and patch management.
 
 **Step 2: Web Application Assessment**
 
@@ -280,14 +248,6 @@ developing and maintaining secure systems and applications.
 ### **Command Executed**
 
 nikto -h <http://10.97.241.156> -o nikto_scan.txt
-
-![](./media/25dc71d3df6a9ebcd66f1fec59ed353350362bf8.png){width="7.5in"
-height="6.083333333333333in"}
-
-![](./media/87518d3e2b035b8193524f8e99f65e32dd12da9b.png){width="7.5in"
-height="0.9583333333333334in"}
-
-### **«**![](./media/8d5390f36218c491a5693f6fe7bddb77dd8775fa.png){width="6.322916666666667in" height="4.53125in"}
 
 ### **Key Findings**
 
@@ -338,7 +298,7 @@ security practices. Publicly exposed administration pages, directory
 indexing, and verbose information disclosure increase the risk of
 unauthorized access, reconnaissance, and targeted exploitation. This
 directly relates to common web application risk categories identified by
-OWASP, such as security misconfiguration and vulnerable or outdated
+OWASP, such as security misconfiguration, vulnerable or outdated
 components.
 
 ## **Step 3: Focused Vulnerability Scanning**
@@ -356,16 +316,6 @@ analysis.
 nuclei -u <http://10.97.241.156> -o nuclei_web_scan.txt
 
 nuclei -target 10.97.241.156 -o nuclei_full_scan.txt
-
-![](./media/2c8a2b9beee06dabe2c1468367eccd7fb4a9225e.png){width="7.5in"
-height="5.885416666666667in"}![](./media/0dc8d6768db35d60fb74a617cebd54b6897926a3.png){width="7.5in"
-height="3.4583333333333335in"}![](./media/6bfd35808a22d9c34f8625463118c42962c868ac.png){width="7.5in"
-height="5.645833333333333in"}
-
-![](./media/8c69e4be08a16829932af5b2b7fed24acd2ee261.png){width="7.5in"
-height="6.177083333333333in"}![](./media/4cb7b316d0a6f1d4732301292f677beb1d9238ae.png){width="7.5in"
-height="3.3854166666666665in"}![](./media/82f7275362393f0080e1b9161238d7abcbc2c6f5.png){width="7.5in"
-height="3.90625in"}**Key Findings**
 
 The Nuclei scans produced several high-value findings:
 
@@ -391,7 +341,7 @@ Confirms the web server allows TRACE requests.
 5.  **Missing Security Headers**
 
 Several headers such as X-Frame-Options, X-Content-Type-Options, and
-Content-Security-Policy are missing.
+Content-Security-Policy is missing.
 
 #### **Network and Service Findings**
 
@@ -402,7 +352,7 @@ with vsFTPd 2.3.4.
 
 7.  **FTP Anonymous Access and Weak Credentials**
 
-Anonymous FTP login is enabled and weak/default credentials are
+Anonymous FTP login is enabled, and weak/default credentials are
 accepted.
 
 8.  **PostgreSQL Empty Password / Default Credentials**
@@ -489,9 +439,6 @@ practices.
                             Credentials                                                  
   --------------------------------------------------------------------------------------------------
 
-![](./media/3eb342d10c15c958a14ef1018bca9b07310144a6.png){width="7.5in"
-height="4.4375in"}
-
 # **Step 2: Risk Treatment Strategy**
 
 ## **Risk Treatment Table**
@@ -513,9 +460,6 @@ height="4.4375in"}
   R5       1,344,000   Mitigate        Remove default credentials and
                                        restrict DB access
   -------------------------------------------------------------------------
-
-![](./media/3015bd3bd2af18138b801dee769f103079ef1656.png){width="7.125in"
-height="6.869047462817148in"}
 
 # **Step 3: Control Mapping (NIST SP 800-53)**
 
@@ -609,12 +553,9 @@ Example:
 
 -   R5 (Database risk):
 
-    -   If system is down for more than **24 hours → business fails**
+    -   If the system is down for more than **24 hours → business fails**
 
     -   If more than **2 hours of data is lost → serious damage**
-
-![](./media/d02a52e3850ada8433b2fae79f7ea3fac2b05f8b.png){width="6.400012029746282in"
-height="4.800009842519685in"}
 
 # **Step 2: Refined Executive Summary (Final Version)**
 
@@ -740,15 +681,16 @@ investment in security controls, which can reduce long-term financial
 losses and improve organizational resilience.
 
 The implementation of risk treatment strategies aligned with established
-frameworks ensures that security efforts are structured, measurable, and
+frameworks ensure that security efforts are structured, measurable, and
 effective. Ultimately, this lab reinforces that effective cybersecurity
 is achieved not only through tools, but through proper governance, risk
 awareness, and continuous improvement.
 
+
 # **References** 
 
 International Organization for Standardization. (2022). *ISO/IEC 27001:
-Information security, cybersecurity and privacy protection ---
+Information security, cybersecurity, and privacy protection ---
 Information security management systems --- Requirements*. ISO.
 
 National Institute of Standards and Technology. (2024). *Framework for
