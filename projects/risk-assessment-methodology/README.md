@@ -39,7 +39,6 @@ The assessment covers:
 - technical-evidence: Raw scan results
 - visuals: Charts and analysis diagrams
 - screenshots: Execution evidence
-- artifacts: Supporting files
 
 ## Outcome
 This project demonstrates the ability to convert technical findings into structured risk insights and actionable recommendations.
