@@ -185,8 +185,7 @@ risk assessment activities.
 | 139/445  | SMB         | Samba 3.0.20         | Known vulnerabilities             |
 | 3306     | MySQL       | MySQL 5.0.51         | Weak database security            |
 | 5432     | PostgreSQL  | PostgreSQL 8.3.x     | Outdated database                 |
-| 8180     | HTTP        | Apache Tomcat 5.5    | Vulnerable application server     |
--------------------------------------------------------------------------------------
+| 8180     | HTTP        | Apache Tomcat 5.5    | Vulnerable application server     
 
 ### **2. Critical Security Misconfigurations**
 
@@ -416,7 +415,7 @@ practices.
 -   **ALE (Annualized Loss Expectancy) = SLE × ARO**
 
 ## **Quantitative Risk Table**
-|-------------------------------------------------------------------------------------------------------------------
+
 | Risk ID | Asset Name            | Threat Description                | AV ($)   | EF  | SLE ($)   | ARO | ALE ($) |
 |---------|----------------------|----------------------------------|----------|-----|-----------|-----|-----------|
 | R1      | Customer Data System | FTP Backdoor (CVE-2011-2523)     | 3,000,000| 0.6 | 1,800,000 | 0.5 | 900,000   |
@@ -424,12 +423,11 @@ practices.
 | R3      | Network Communication| Telnet (Plaintext Exposure)      | 1,500,000| 0.4 | 600,000   | 1.5 | 900,000   |
 | R4      | Web Application      | PHP Vulnerability (CVE-2012-1823 |2,000,000 | 0.5 | 1,000,000 | 0.7 | 700,000   |
 | R5      | Database System      | PostgreSQL Default Credentials   | 2,800,000| 0.6 | 1,680,000 | 0.8 | 1,344,000 |
----------------------------------------------------------------------------------------------------------------------
+
 # **Step 2: Risk Treatment Strategy**
 
 ## **Risk Treatment Table**
 
-  -------------------------------------------------------------------------------------------------------------
 | Risk ID | ALE ($)  | Proposed Treatment |                         Justification                              |
 |---------|----------|---------------------|-------------------------------------------------------------------|
 | R1      | 900,000  | Mitigate            | Patch vsFTPd and disable vulnerable FTP service                   |
@@ -437,13 +435,12 @@ practices.
 | R3      | 900,000  | Avoid               | Disable Telnet completely due to inherent insecurity              |
 | R4      | 700,000  | Mitigate            | Apply patches and secure PHP configuration                        |
 | R5      | 1,344,000| Mitigate            | Remove default credentials and restrict database access           |
-  --------------------------------------------------------------------------------------------------------------
 
 # **Step 3: Control Mapping (NIST SP 800-53)**
 
 ## **Control Mapping Table**
 
-|-----------------------------------------------------------------------------------------------------------------------------
+
 | Risk ID | Threat Description        | Proposed Control            | NIST Control ID | Control Description                  |
 |---------|---------------------------|-----------------------------|-----------------|--------------------------------------|
 | R1      | FTP Backdoor              | Patch Management            | SI-2            | Flaw Remediation                     |
@@ -456,7 +453,6 @@ practices.
 | R4      | PHP Vulnerability         | Web Filtering               | SC-7            | Boundary Protection                  |
 | R5      | DB Default Credentials    | Access Control              | AC-6            | Least Privilege                      |
 | R5      | DB Default Credentials    | Account Management          | AC-2            | Account Management                   |
-  ----------------------------------------------------------------------------------------------------------------------------
 
 # **Phase 5: Business Impact Analysis (BIA) & Final Reporting**
 
@@ -471,7 +467,7 @@ Technology and ISO risk management principles.
 
 ## **BIA Table (Submission Ready)**
 
-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 | Risk ID | Threat Description               | Affected Business Process     | RTO     | RPO     | Financial Impact (Estimated) | Non-Financial Impact                           |
 |---------|----------------------------------|-------------------------------|---------|---------|------------------------------|------------------------------------------------|
 | R1      | FTP Backdoor (CVE-2011-2523)     | Customer Data Management      | 24 hours| 6 hours | $900,000/year                | Data loss, regulatory penalties                |
@@ -479,7 +475,6 @@ Technology and ISO risk management principles.
 | R3      | Telnet (Plaintext Exposure)      | Internal Communications       | 8 hours | 1 hour  | $900,000/year                | Data interception, loss of trust               |
 | R4      | PHP Vulnerability (CVE-2012-1823)| Web Application Services      | 16 hours| 4 hours | $700,000/year                | Website compromise, service disruption         |
 | R5      | Database Default Credentials     | Financial Transactions        | 24 hours| 2 hours | $1,344,000/year              | Data breach, legal consequences, customer los  |
-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 ## **Simple Explanation (What this table really means)**
 
@@ -521,31 +516,31 @@ Cybersecurity Framework and industry best practices.
 
 -   **Critical Risk -- Full System Compromise:**
 
-The FTP service contains a known backdoor vulnerability (CVE-2011-2523),
-allowing unauthorized remote access. This creates a direct path to total
-system compromise.
+    The FTP service contains a known backdoor vulnerability (CVE-2011-2523),
+    allowing unauthorized remote access. This creates a direct path to total
+    system compromise.
 
 -   **High Risk -- Database Exposure:**
 
-Default credentials in the PostgreSQL database allow attackers to gain
-full access to sensitive financial and operational data. This represents
-the highest financial risk, with an estimated annual loss of **\$1.34
-million**.
+    Default credentials in the PostgreSQL database allow attackers to gain
+    full access to sensitive financial and operational data. This represents
+    the highest financial risk, with an estimated annual loss of **\$1.34
+    llion**.
 
 -   **High Risk -- Weak Authentication Controls:**
 
-Multiple services allow weak or default credentials, significantly
-increasing the risk of unauthorized access and data breaches.
+    Multiple services allow weak or default credentials, significantly
+    increasing the risk of unauthorized access and data breaches.
 
 -   **High Risk -- Unsecured Communication:**
 
-The use of Telnet exposes credentials in plaintext, making interception
-easy for attackers.
+    The use of Telnet exposes credentials in plaintext, making interception
+    easy for attackers.
 
 -   **High Risk -- Web Application Vulnerabilities:**
 
-The web server is outdated and vulnerable to known exploits, increasing
-the likelihood of web-based attacks.
+    The web server is outdated and vulnerable to known exploits, increasing
+    the likelihood of web-based attacks.
 
 ### **3. Business Impact**
 
@@ -607,7 +602,7 @@ are not just technical problems but business issues that can lead to
 significant financial loss, operational disruption, and reputational
 damage.
 
-The identification of critical vulnerabilities such as default
+The identification of critical vulnerabilities, such as default
 credentials, outdated software, and insecure communication protocols
 demonstrates the importance of proper system configuration and
 continuous monitoring. When these weaknesses are left unaddressed, they
