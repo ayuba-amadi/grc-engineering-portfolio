@@ -174,29 +174,29 @@ risk assessment activities.
 
 ### **1. Identified Services and Versions**
 
-  -----------------------------------------------------------------------------
-  **Port**   **Service**   **Version**        **Security Concern**
-  ---------- ------------- ------------------ ---------------------------------
-  21         FTP           vsftpd 2.3.4       Known backdoor vulnerability
-
-  22         SSH           OpenSSH 4.7        Outdated version
-
-  23         Telnet        Linux telnetd      Unencrypted communication
-
-  25         SMTP          Postfix            Weak encryption (SSLv2 enabled)
-
-  53         DNS           BIND 9.4.2         Outdated DNS server
-
-  80         HTTP          Apache 2.2.8       Outdated web server
-
-  139/445    SMB           Samba 3.0.20       Known vulnerabilities
-
-  3306       MySQL         5.0.51             Weak database security
-
-  5432       PostgreSQL    8.3.x              Outdated database
-
-  8180       HTTP          Apache Tomcat 5.5  Vulnerable application server
-  -----------------------------------------------------------------------------
+ | -------------------------------------------------------------------------------|
+ | **Port** |  **Service** |  **Version**      |  **Security Concern**            |
+ | ---------|---------------------------------------------------------------------|
+ | 21       |  FTP         |  vsftpd 2.3.4     |  Known backdoor vulnerability    |
+ ---------------------------------------------------------------------------------|
+ | 22       |  SSH         |  OpenSSH 4.7      |  Outdated version                |
+ ---------------------------------------------------------------------------------|
+ | 23       |  Telnet      |  Linux telnetd    |  Unencrypted communication       |
+ ---------------------------------------------------------------------------------|
+ | 25       |  SMTP        |  Postfix          |  Weak encryption (SSLv2 enabled) |
+ ---------------------------------------------------------------------------------|
+ | 53       |  DNS         |  BIND 9.4.2       |  Outdated DNS server             |
+ ---------------------------------------------------------------------------------|
+ | 80       |  HTTP        |  Apache 2.2.8     |  Outdated web server             |
+ ---------------------------------------------------------------------------------|
+ | 139/445  |  SMB         |  Samba 3.0.20     |  Known vulnerabilities           |
+ ---------------------------------------------------------------------------------|
+ | 3306     |  MySQL       |  5.0.51           |  Weak database security          |
+ ---------------------------------------------------------------------------------|
+ | 5432     |  PostgreSQL  |  8.3.x            |  Outdated database               |
+ ---------------------------------------------------------------------------------|
+ | 8180     |  HTTP        | Apache Tomcat 5.5 |  Vulnerable application server   |
+  --------------------------------------------------------------------------------|
 
 ### **2. Critical Security Misconfigurations**
 
@@ -263,42 +263,42 @@ nikto -h <http://10.97.241.156> -o nikto_scan.txt
 The Nikto scan identified several important web application weaknesses:
 
 1.  **Outdated Apache Web Server**
-
-The server is running Apache 2.2.8, which is outdated and no longer
-considered secure.
+    
+    The server is running Apache 2.2.8, which is outdated and no longer
+    considered secure.
 
 2.  **Outdated PHP Version**
 
-The server exposes PHP/5.2.4-2ubuntu5.10, which is very old and may
-contain known vulnerabilities.
+    The server exposes PHP/5.2.4-2ubuntu5.10, which is very old and may
+    contain known vulnerabilities.
 
 3.  **Missing Security Headers**
 
-The anti-clickjacking X-Frame-Options header is not present. This
-weakens browser-side protection.
-
+    The anti-clickjacking X-Frame-Options header is not present. This
+    weakens browser-side protection.
+    
 4.  **HTTP TRACE Method Enabled**
 
-The TRACE method is active, which may support Cross-Site Tracing (XST).
+    The TRACE method is active, which may support Cross-Site Tracing (XST).
 
 5.  **Sensitive Information Exposure**
 
-The file /phpinfo.php is accessible and reveals PHP configuration
-details.
+    The file /phpinfo.php is accessible and reveals PHP configuration
+    details.
 
 6.  **Directory Indexing Enabled**
 
-Browsable directories such as /doc/, /test/, and /icons/ were
-identified.
+    Browsable directories such as /doc/, /test/, and /icons/ were
+    identified.
 
 7.  **phpMyAdmin Exposed**
 
-The /phpMyAdmin/ interface is publicly accessible and should be
-protected or restricted.
+    The /phpMyAdmin/ interface is publicly accessible and should be
+    protected or restricted.
 
 8.  **Cookie Security Weakness**
 
-The phpMyAdmin cookie was created without the HttpOnly flag.
+    The phpMyAdmin cookie was created without the HttpOnly flag.
 
 ### **Analysis**
 
@@ -332,51 +332,51 @@ The Nuclei scans produced several high-value findings:
 
 1.  **CVE-2012-1823** -- PHP CGI vulnerability
 
-This is a high-risk web vulnerability that may allow remote code
-execution through PHP CGI argument injection.
+    This is a high-risk web vulnerability that may allow remote code
+    execution through PHP CGI argument injection.
 
 2.  **phpMyAdmin Panel Exposed**
 
-The phpMyAdmin interface is accessible from the web.
+    The phpMyAdmin interface is accessible from the web.
 
 3.  **phpinfo.php Exposed**
 
-Sensitive PHP configuration information is publicly available.
+    Sensitive PHP configuration information is publicly available.
 
 4.  **HTTP TRACE Enabled**
 
-Confirms the web server allows TRACE requests.
+    Confirms the web server allows TRACE requests.
 
 5.  **Missing Security Headers**
 
-Several headers such as X-Frame-Options, X-Content-Type-Options, and
-Content-Security-Policy is missing.
+    Several headers such as X-Frame-Options, X-Content-Type-Options, and
+    Content-Security-Policy is missing.
 
 #### **Network and Service Findings**
 
 6.  **CVE-2011-2523** -- vsFTPd Backdoor
 
-This is a critical finding that indicates a known backdoor associated
-with vsFTPd 2.3.4.
+    This is a critical finding that indicates a known backdoor associated
+    with vsFTPd 2.3.4.
 
 7.  **FTP Anonymous Access and Weak Credentials**
 
-Anonymous FTP login is enabled, and weak/default credentials are
-accepted.
+    Anonymous FTP login is enabled, and weak/default credentials are
+    accepted.
 
 8.  **PostgreSQL Empty Password / Default Credentials**
 
-PostgreSQL accepts weak or empty credentials, which is a critical
-authentication weakness.
+    PostgreSQL accepts weak or empty credentials, which is a critical
+    authentication weakness.
 
 9.  **VNC Default Logins**
 
-The VNC service appears vulnerable to common default passwords such as
-password and password123.
+    The VNC service appears vulnerable to common default passwords such as
+    password and password123.
 
 10. **SMBv1 Supported**
 
-SMBv1 is detected, which is an outdated and insecure protocol.
+    SMBv1 is detected, which is an outdated and insecure protocol.
 
 11. **Outdated Software Exposure**
 
@@ -427,26 +427,26 @@ practices.
 
 ## **Quantitative Risk Table**
 
-  --------------------------------------------------------------------------------------------------
-  **Risk   **Asset Name**   **Threat          **AV (\$)** **EF**   **SLE       **ARO**   **ALE
-  ID**                      Description**                          (\$)**                (\$)**
-  -------- ---------------- ----------------- ----------- -------- ----------- --------- -----------
-  R1       Customer Data    FTP Backdoor      3,000,000   0.6      1,800,000   0.5       900,000
-           System           (CVE-2011-2523)                                              
-
-  R2       Authentication   Weak Credentials  2,500,000   0.5      1,250,000   1.0       1,250,000
-           System           (FTP, DB, VNC)                                               
-
-  R3       Network          Telnet (Plaintext 1,500,000   0.4      600,000     1.5       900,000
-           Communication    Exposure)                                                    
-
-  R4       Web Application  PHP Vulnerability 2,000,000   0.5      1,000,000   0.7       700,000
-                            (CVE-2012-1823)                                              
-
-  R5       Database System  PostgreSQL        2,800,000   0.6      1,680,000   0.8       1,344,000
-                            Default                                                      
-                            Credentials                                                  
-  --------------------------------------------------------------------------------------------------
+ | -------|------------------|-----------------------|-----------------|-------------|----------------|--------------|----------------|
+ | **Risk |  **Asset Name**  |     **Threat          |    **AV (\$)**  |   **EF**    |   **SLE        |   **ARO**    |   **ALE        |
+ | ID**   |                  |     Description**     |                 |    (\$)**   |                |    (\$)**    |                |
+ | -------|------------------|-----------------------|-----------------|-------------|------ ---------|--------------|----------------|
+ | R1     |  Customer Data   |      FTP Backdoor     |     3,000,000   |    0.6      |    1,800,000   |     0.5      |     900,000    |
+ |        |  System          |     (CVE-2011-2523)   |                 |             |                |              |                |
+ ---------|------------------|-----------------------|-----------------|-------------|----------------|--------------|----------------|
+ | R2     |  Authentication  |     Weak Credentials  |    2,500,000    |    0.5      |    1,250,000   |      1.0     |     1,250,000  |
+ |        |  System          |     (FTP, DB, VNC)    |                 |             |                |              |                |
+ ---------|------------------|-----------------------|-----------------|-------------|----------------|--------------|----------------|
+ | R3     |  Network         |     Telnet (Plaintext |    1,500,000    |    0.4      |    600,000     |      1.5     |      900,000   |
+ |        |  Communication   |     Exposure)         |                 |             |                |              |                |
+ ---------|------------------|-----------------------|-----------------|-------------|----------------|--------------|----------------|          
+ | R4     |  Web Application |     PHP Vulnerability |    2,000,000    |    0.5      |    1,000,000   |       0.7    |      700,000   | 
+ |        |                  |     (CVE-2012-1823)   |                 |             |                |              |                |
+ ---------|------------------|-----------------------|-----------------|-------------|----------------|--------------|----------------|
+ |  R5    | Database System  |    PostgreSQL         |   2,800,000     |   0.6       |   1,680,000    |       0.8    |      1,344,000 |
+ |        |                  |     Default           |                 |             |                |              |                |
+ |        |                  |     Credentials       |                 |             |                |              |                |
+ | -------|------------------|-----------------------|-----------------|-------------|----------------|--------------|----------------|
 
 # **Step 2: Risk Treatment Strategy**
 
