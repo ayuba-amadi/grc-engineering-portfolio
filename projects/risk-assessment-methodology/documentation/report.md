@@ -174,29 +174,19 @@ risk assessment activities.
 
 ### **1. Identified Services and Versions**
 
- | -------------------------------------------------------------------------------|
- | **Port** |  **Service** |  **Version**      |  **Security Concern**            |
- | ---------|---------------------------------------------------------------------|
- | 21       |  FTP         |  vsftpd 2.3.4     |  Known backdoor vulnerability    |
- ---------------------------------------------------------------------------------|
- | 22       |  SSH         |  OpenSSH 4.7      |  Outdated version                |
- ---------------------------------------------------------------------------------|
- | 23       |  Telnet      |  Linux telnetd    |  Unencrypted communication       |
- ---------------------------------------------------------------------------------|
- | 25       |  SMTP        |  Postfix          |  Weak encryption (SSLv2 enabled) |
- ---------------------------------------------------------------------------------|
- | 53       |  DNS         |  BIND 9.4.2       |  Outdated DNS server             |
- ---------------------------------------------------------------------------------|
- | 80       |  HTTP        |  Apache 2.2.8     |  Outdated web server             |
- ---------------------------------------------------------------------------------|
- | 139/445  |  SMB         |  Samba 3.0.20     |  Known vulnerabilities           |
- ---------------------------------------------------------------------------------|
- | 3306     |  MySQL       |  5.0.51           |  Weak database security          |
- ---------------------------------------------------------------------------------|
- | 5432     |  PostgreSQL  |  8.3.x            |  Outdated database               |
- ---------------------------------------------------------------------------------|
- | 8180     |  HTTP        | Apache Tomcat 5.5 |  Vulnerable application server   |
-  --------------------------------------------------------------------------------|
+| Port     | Service     | Version              | Security Concern                  |
+|----------|-------------|----------------------|-----------------------------------|
+| 21       | FTP         | vsftpd 2.3.4         | Known backdoor vulnerability      |
+| 22       | SSH         | OpenSSH 4.7          | Outdated version                  |
+| 23       | Telnet      | Linux telnetd        | Unencrypted communication         |
+| 25       | SMTP        | Postfix              | Weak encryption (SSLv2 enabled)   |
+| 53       | DNS         | BIND 9.4.2           | Outdated DNS server               |
+| 80       | HTTP        | Apache 2.2.8         | Outdated web server               |
+| 139/445  | SMB         | Samba 3.0.20         | Known vulnerabilities             |
+| 3306     | MySQL       | MySQL 5.0.51         | Weak database security            |
+| 5432     | PostgreSQL  | PostgreSQL 8.3.x     | Outdated database                 |
+| 8180     | HTTP        | Apache Tomcat 5.5    | Vulnerable application server     |
+-------------------------------------------------------------------------------------
 
 ### **2. Critical Security Misconfigurations**
 
@@ -426,87 +416,47 @@ practices.
 -   **ALE (Annualized Loss Expectancy) = SLE × ARO**
 
 ## **Quantitative Risk Table**
-
- | -------|------------------|-----------------------|-----------------|-------------|----------------|--------------|----------------|
- | **Risk |  **Asset Name**  |     **Threat          |    **AV (\$)**  |   **EF**    |   **SLE        |   **ARO**    |   **ALE        |
- | ID**   |                  |     Description**     |                 |    (\$)**   |                |    (\$)**    |                |
- | -------|------------------|-----------------------|-----------------|-------------|------ ---------|--------------|----------------|
- | R1     |  Customer Data   |      FTP Backdoor     |     3,000,000   |    0.6      |    1,800,000   |     0.5      |     900,000    |
- |        |  System          |     (CVE-2011-2523)   |                 |             |                |              |                |
- ---------|------------------|-----------------------|-----------------|-------------|----------------|--------------|----------------|
- | R2     |  Authentication  |     Weak Credentials  |    2,500,000    |    0.5      |    1,250,000   |      1.0     |     1,250,000  |
- |        |  System          |     (FTP, DB, VNC)    |                 |             |                |              |                |
- ---------|------------------|-----------------------|-----------------|-------------|----------------|--------------|----------------|
- | R3     |  Network         |     Telnet (Plaintext |    1,500,000    |    0.4      |    600,000     |      1.5     |      900,000   |
- |        |  Communication   |     Exposure)         |                 |             |                |              |                |
- ---------|------------------|-----------------------|-----------------|-------------|----------------|--------------|----------------|          
- | R4     |  Web Application |     PHP Vulnerability |    2,000,000    |    0.5      |    1,000,000   |       0.7    |      700,000   | 
- |        |                  |     (CVE-2012-1823)   |                 |             |                |              |                |
- ---------|------------------|-----------------------|-----------------|-------------|----------------|--------------|----------------|
- |  R5    | Database System  |    PostgreSQL         |   2,800,000     |   0.6       |   1,680,000    |       0.8    |      1,344,000 |
- |        |                  |     Default           |                 |             |                |              |                |
- |        |                  |     Credentials       |                 |             |                |              |                |
- | -------|------------------|-----------------------|-----------------|-------------|----------------|--------------|----------------|
-
+|-------------------------------------------------------------------------------------------------------------------
+| Risk ID | Asset Name            | Threat Description                | AV ($)   | EF  | SLE ($)   | ARO | ALE ($) |
+|---------|----------------------|----------------------------------|----------|-----|-----------|-----|-----------|
+| R1      | Customer Data System | FTP Backdoor (CVE-2011-2523)     | 3,000,000| 0.6 | 1,800,000 | 0.5 | 900,000   |
+| R2      | Authentication System| Weak Credentials (FTP, DB, VNC)  | 2,500,000| 0.5 | 1,250,000 | 1.0 | 1,250,000 |
+| R3      | Network Communication| Telnet (Plaintext Exposure)      | 1,500,000| 0.4 | 600,000   | 1.5 | 900,000   |
+| R4      | Web Application      | PHP Vulnerability (CVE-2012-1823 |2,000,000 | 0.5 | 1,000,000 | 0.7 | 700,000   |
+| R5      | Database System      | PostgreSQL Default Credentials   | 2,800,000| 0.6 | 1,680,000 | 0.8 | 1,344,000 |
+---------------------------------------------------------------------------------------------------------------------
 # **Step 2: Risk Treatment Strategy**
 
 ## **Risk Treatment Table**
 
-  -------------------------------------------------------------------------
-  **Risk   **ALE       **Proposed      **Justification**
-  ID**     (\$)**      Treatment**     
-  -------- ----------- --------------- ------------------------------------
-  R1       900,000     Mitigate        Patch vsFTPd, disable vulnerable FTP
-                                       service
-
-  R2       1,250,000   Mitigate        Enforce strong passwords and MFA
-
-  R3       900,000     Avoid           Disable Telnet completely
-
-  R4       700,000     Mitigate        Apply patches and secure PHP
-                                       configuration
-
-  R5       1,344,000   Mitigate        Remove default credentials and
-                                       restrict DB access
-  -------------------------------------------------------------------------
+  -------------------------------------------------------------------------------------------------------------
+| Risk ID | ALE ($)  | Proposed Treatment |                         Justification                              |
+|---------|----------|---------------------|-------------------------------------------------------------------|
+| R1      | 900,000  | Mitigate            | Patch vsFTPd and disable vulnerable FTP service                   |
+| R2      | 1,250,000| Mitigate            | Enforce strong password policies and multi-factor authentication  |
+| R3      | 900,000  | Avoid               | Disable Telnet completely due to inherent insecurity              |
+| R4      | 700,000  | Mitigate            | Apply patches and secure PHP configuration                        |
+| R5      | 1,344,000| Mitigate            | Remove default credentials and restrict database access           |
+  --------------------------------------------------------------------------------------------------------------
 
 # **Step 3: Control Mapping (NIST SP 800-53)**
 
 ## **Control Mapping Table**
 
-  ---------------------------------------------------------------------------
-  **Risk   **Threat        **Proposed       **NIST     **Control
-  ID**     Description**   Control**        Control    Description**
-                                            ID**       
-  -------- --------------- ---------------- ---------- ----------------------
-  R1       FTP Backdoor    Patch Management SI-2       Flaw Remediation
-
-  R1       FTP Backdoor    Service          CM-7       Least Functionality
-                           Hardening                   
-
-  R2       Weak            Multi-Factor     IA-2       Identification and
-           Credentials     Authentication              Authentication
-
-  R2       Weak            Password Policy  IA-5       Authenticator
-           Credentials                                 Management
-
-  R3       Telnet Exposure Disable Telnet   CM-7       Least Functionality
-
-  R3       Telnet Exposure Encrypt          SC-13      Cryptographic
-                           Communications              Protection
-
-  R4       PHP             Input Validation SI-10      Information Input
-           Vulnerability                               Validation
-
-  R4       PHP             Web Filtering    SC-7       Boundary Protection
-           Vulnerability                               
-
-  R5       DB Default      Access Control   AC-6       Least Privilege
-           Credentials                                 
-
-  R5       DB Default      Account          AC-2       Account Management
-           Credentials     Management                  
-  ---------------------------------------------------------------------------
+|-----------------------------------------------------------------------------------------------------------------------------
+| Risk ID | Threat Description        | Proposed Control            | NIST Control ID | Control Description                  |
+|---------|---------------------------|-----------------------------|-----------------|--------------------------------------|
+| R1      | FTP Backdoor              | Patch Management            | SI-2            | Flaw Remediation                     |
+| R1      | FTP Backdoor              | Service Hardening           | CM-7            | Least Functionality                  |
+| R2      | Weak Credentials          | Multi-Factor Authentication | IA-2            | Identification and Authentication    |
+| R2      | Weak Credentials          | Password Policy             | IA-5            | Authenticator Management             |
+| R3      | Telnet Exposure           | Disable Telnet              | CM-7            | Least Functionality                  |
+| R3      | Telnet Exposure           | Encrypt Communications      | SC-13           | Cryptographic Protection             |
+| R4      | PHP Vulnerability         | Input Validation            | SI-10           | Information Input Validation         |
+| R4      | PHP Vulnerability         | Web Filtering               | SC-7            | Boundary Protection                  |
+| R5      | DB Default Credentials    | Access Control              | AC-6            | Least Privilege                      |
+| R5      | DB Default Credentials    | Account Management          | AC-2            | Account Management                   |
+  ----------------------------------------------------------------------------------------------------------------------------
 
 # **Phase 5: Business Impact Analysis (BIA) & Final Reporting**
 
@@ -521,34 +471,15 @@ Technology and ISO risk management principles.
 
 ## **BIA Table (Submission Ready)**
 
-  ----------------------------------------------------------------------------------------------------
-  **Risk   **Threat          **Affected       **RTO**   **RPO**   **Financial Impact **Non-Financial
-  ID**     Description**     Business                             (Estimated)**      Impact**
-                             Process**                                               
-  -------- ----------------- ---------------- --------- --------- ------------------ -----------------
-  R1       FTP Backdoor      Customer Data    24 hours  6 hours   \$900,000/year     Loss of sensitive
-           (CVE-2011-2523)   Management                                              data, regulatory
-                                                                                     penalties
-
-  R2       Weak Credentials  User             12 hours  2 hours   \$1,250,000/year   Unauthorized
-                             Authentication                                          access,
-                             System                                                  reputational
-                                                                                     damage
-
-  R3       Telnet (Plaintext Internal         8 hours   1 hour    \$900,000/year     Data
-           Exposure)         Communications                                          interception,
-                                                                                     loss of trust
-
-  R4       PHP Vulnerability Web Application  16 hours  4 hours   \$700,000/year     Website
-           (CVE-2012-1823)   Services                                                compromise,
-                                                                                     service
-                                                                                     disruption
-
-  R5       Database Default  Financial        24 hours  2 hours   \$1,344,000/year   Data breach,
-           Credentials       Transactions                                            legal
-                                                                                     consequences,
-                                                                                     customer loss
-  ----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+| Risk ID | Threat Description               | Affected Business Process     | RTO     | RPO     | Financial Impact (Estimated) | Non-Financial Impact                           |
+|---------|----------------------------------|-------------------------------|---------|---------|------------------------------|------------------------------------------------|
+| R1      | FTP Backdoor (CVE-2011-2523)     | Customer Data Management      | 24 hours| 6 hours | $900,000/year                | Data loss, regulatory penalties                |
+| R2      | Weak Credentials                 | User Authentication System    | 12 hours| 2 hours | $1,250,000/year              | Unauthorized access, reputational damage       |
+| R3      | Telnet (Plaintext Exposure)      | Internal Communications       | 8 hours | 1 hour  | $900,000/year                | Data interception, loss of trust               |
+| R4      | PHP Vulnerability (CVE-2012-1823)| Web Application Services      | 16 hours| 4 hours | $700,000/year                | Website compromise, service disruption         |
+| R5      | Database Default Credentials     | Financial Transactions        | 24 hours| 2 hours | $1,344,000/year              | Data breach, legal consequences, customer los  |
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 ## **Simple Explanation (What this table really means)**
 
