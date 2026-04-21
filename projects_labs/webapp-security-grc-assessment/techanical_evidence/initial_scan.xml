@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE nmaprun>
+<?xml-stylesheet href="file:///usr/bin/../share/nmap/nmap.xsl" type="text/xsl"?>
+<!-- Nmap 7.94SVN scan initiated Sat Apr 18 16:59:06 2026 as: nmap -sV -sC -O -p- -oA initial_scan 10.124.186.214 -->
+<nmaprun scanner="nmap" args="nmap -sV -sC -O -p- -oA initial_scan 10.124.186.214" start="1776527946" startstr="Sat Apr 18 16:59:06 2026" version="7.94SVN" xmloutputversion="1.05">
+<scaninfo type="syn" protocol="tcp" numservices="65535" services="1-65535"/>
+<verbose level="0"/>
+<debugging level="0"/>
+<hosthint><status state="up" reason="arp-response" reason_ttl="0"/>
+<address addr="10.124.186.214" addrtype="ipv4"/>
+<address addr="08:00:27:D5:C9:08" addrtype="mac" vendor="Oracle VirtualBox virtual NIC"/>
+<hostnames>
+</hostnames>
+</hosthint>
+<host starttime="1776527946" endtime="1776528020"><status state="up" reason="arp-response" reason_ttl="0"/>
+<address addr="10.124.186.214" addrtype="ipv4"/>
+<address addr="08:00:27:D5:C9:08" addrtype="mac" vendor="Oracle VirtualBox virtual NIC"/>
+<hostnames>
+</hostnames>
+<ports><extraports state="closed" count="65526">
+<extrareasons reason="reset" count="65526" proto="tcp" ports="1-21,23-79,81-138,140-142,144-442,444,446-5000,5002-8079,8082-65535"/>
+</extraports>
+<port protocol="tcp" portid="22"><state state="open" reason="syn-ack" reason_ttl="64"/><service name="ssh" product="OpenSSH" version="5.3p1 Debian 3ubuntu4" extrainfo="Ubuntu Linux; protocol 2.0" ostype="Linux" method="probed" conf="10"><cpe>cpe:/a:openbsd:openssh:5.3p1</cpe><cpe>cpe:/o:linux:linux_kernel</cpe></service><script id="ssh-hostkey" output="&#xa;  1024 ea:83:1e:45:5a:a6:8c:43:1c:3c:e3:18:dd:fc:88:a5 (DSA)&#xa;  2048 3a:94:d8:3f:e0:a2:7a:b8:c3:94:d7:5e:00:55:0c:a7 (RSA)"><table>
+<elem key="key">AAAAB3NzaC1kc3MAAACBAPL5FjD0hlJl43QNZ9/+yluxtM5fgbV6WE7rQaGO/zIoEBfCL1byPWsD9oBcb5gjav4fFmfwCBk8IsI5J2JBRjrhVHhANmR5cmOG9c9suWLcV8h9L/SC5RU05s8hK8ZRQ981pGmm06yndBsLTLU1PviTlOkEstAlzezdx6weE2L9AAAAFQC2Rf/CKrXiqAC55sNlWEsFsTD6sQAAAIANL4oyRYNZD2+pPnjNqkdYy/AKEkV6hzyHJ6+jH2EZYLeHbx1CcAY2c3QDNsiqHaTAtY89P5XvHmLReyfWnGWhYGu5KaQaDUntNqEBJ2joRLxeDWPoQGPms7sy+Zb5JzzwG//6ebkFvcdDvLiOIcoESIcypS7btSqGdm8MmZNonAAAAIA/c02lT7X0v8xQ1GQ4txpsohnYvIeFWQycL8JYoeNX3k8lBYUaCGORtwKIA+d4plKbLZGp2NbEK1ycQrp/zCctVJW1ydgHR88mrt5ol2eKmt2yIhzgNSzPMn+G1C4MctZXBYJYbjGgKLFyMddPy/BYFeiPdKWisejZAfPhhOW9Qw==</elem>
+<elem key="bits">1024</elem>
+<elem key="type">ssh-dss</elem>
+<elem key="fingerprint">ea831e455aa68c431c3ce318ddfc88a5</elem>
+</table>
+<table>
+<elem key="key">AAAAB3NzaC1yc2EAAAABIwAAAQEAwapaepasy2vyKGiRMUrMe4IzrDzKpRodz81xlfXenZyZ/eg9uEIxeKATXm1X9iCZ27f+nnrhtswKKpHqpEhjuyiUGTgjT6cxSSJq4bq5SHj07uMtIwWtkRgcvsg3bERuc35AIx12+t6S1Iy76aglqmkAK+14RBSEYGHRb4/Kch+p9nZyc8zXnjIChZNOAMdXcDJ/MdfeBd5aSx0CopjgEfC8jEoH1rc+atUHshqB2hgQOqJPA3018QElQ8NdeHnBWKHGooVqCBHNltiKsW/Kd0dD7ZOQS38kuthGRDQq4NuAeshFjM3a1756jUBlnWEiL4zO8Cbj6OBxl87CqCafDQ==</elem>
+<elem key="bits">2048</elem>
+<elem key="type">ssh-rsa</elem>
+<elem key="fingerprint">3a94d83fe0a27ab8c394d75e00550ca7</elem>
+</table>
+</script></port>
+<port protocol="tcp" portid="80"><state state="open" reason="syn-ack" reason_ttl="64"/><service name="http" product="Apache httpd" version="2.2.14" extrainfo="(Ubuntu) mod_mono/2.4.3 PHP/5.3.2-1ubuntu4.30 with Suhosin-Patch proxy_html/3.0.1 mod_python/3.3.1 Python/2.6.5 mod_ssl/2.2.14 OpenSSL/0.9.8k Phusion_Passenger/4.0.38 mod_perl/2.0.4 Perl/v5.10.1" method="probed" conf="10"><cpe>cpe:/a:apache:http_server:2.2.14</cpe></service><script id="http-server-header" output="Apache/2.2.14 (Ubuntu) mod_mono/2.4.3 PHP/5.3.2-1ubuntu4.30 with Suhosin-Patch proxy_html/3.0.1 mod_python/3.3.1 Python/2.6.5 mod_ssl/2.2.14 OpenSSL/0.9.8k Phusion_Passenger/4.0.38 mod_perl/2.0.4 Perl/v5.10.1"><elem>Apache/2.2.14 (Ubuntu) mod_mono/2.4.3 PHP/5.3.2-1ubuntu4.30 with Suhosin-Patch proxy_html/3.0.1 mod_python/3.3.1 Python/2.6.5 mod_ssl/2.2.14 OpenSSL/0.9.8k Phusion_Passenger/4.0.38 mod_perl/2.0.4 Perl/v5.10.1</elem>
+</script><script id="http-methods" output="&#xa;  Potentially risky methods: TRACE"><table key="Potentially risky methods">
+<elem>TRACE</elem>
+</table>
+</script><script id="http-title" output="owaspbwa OWASP Broken Web Applications"><elem key="title">owaspbwa OWASP Broken Web Applications</elem>
+</script></port>
+<port protocol="tcp" portid="139"><state state="open" reason="syn-ack" reason_ttl="64"/><service name="netbios-ssn" product="Samba smbd" version="3.X - 4.X" extrainfo="workgroup: WORKGROUP" method="probed" conf="10"><cpe>cpe:/a:samba:samba</cpe></service></port>
+<port protocol="tcp" portid="143"><state state="open" reason="syn-ack" reason_ttl="64"/><service name="imap" product="Courier Imapd" extrainfo="released 2008" method="probed" conf="10"/><script id="imap-capabilities" output="THREAD=ORDEREDSUBJECT THREAD=REFERENCES completed ACL OK CHILDREN CAPABILITY ACL2=UNIONA0001 IMAP4rev1 NAMESPACE UIDPLUS SORT QUOTA IDLE"/></port>
+<port protocol="tcp" portid="443"><state state="open" reason="syn-ack" reason_ttl="64"/><service name="https" tunnel="ssl" method="table" conf="3"/><script id="ssl-cert" output="Subject: commonName=owaspbwa&#xa;Not valid before: 2013-01-02T21:12:38&#xa;Not valid after:  2022-12-31T21:12:38"><table key="subject">
+<elem key="commonName">owaspbwa</elem>
+</table>
+<table key="issuer">
+<elem key="commonName">owaspbwa</elem>
+</table>
+<table key="pubkey">
+<elem key="type">rsa</elem>
+<elem key="bits">1024</elem>
+<elem key="modulus">C8C57B5F3A1E9371E44B01DE4B01F039BC52FFB9A7D1D7928AFA4D18AF5C4D8E3B8F77B897FC029D521E7003333432AA197842A2EF61F08937B36052452EFA4C43FE8F07E00BB7162701FEEF4244B19902ECA1E291A30299395E27223B8414A0A9DC4464EF10DB3A7B396EDEB6206F47C638B971B24C6AAE0220CB10735347B5</elem>
+<elem key="exponent">65537</elem>
+</table>
+<elem key="sig_algo">sha1WithRSAEncryption</elem>
+<table key="validity">
+<elem key="notBefore">2013-01-02T21:12:38</elem>
+<elem key="notAfter">2022-12-31T21:12:38</elem>
+</table>
+<elem key="md5">0fb9ca0be9b7b26fde6c355561862399</elem>
+<elem key="sha1">e469e1f2987740c33aecee7cf630ca1931be05ae</elem>
+<elem key="pem">-&#45;&#45;&#45;&#45;BEGIN CERTIFICATE-&#45;&#45;&#45;&#45;&#xa;MIIBnTCCAQYCCQDmhw3dcsK55zANBgkqhkiG9w0BAQUFADATMREwDwYDVQQDEwhv&#xa;d2FzcGJ3YTAeFw0xMzAxMDIyMTEyMzhaFw0yMjEyMzEyMTEyMzhaMBMxETAPBgNV&#xa;BAMTCG93YXNwYndhMIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDIxXtfOh6T&#xa;ceRLAd5LAfA5vFL/uafR15KK+k0Yr1xNjjuPd7iX/AKdUh5wAzM0MqoZeEKi72Hw&#xa;iTezYFJFLvpMQ/6PB+ALtxYnAf7vQkSxmQLsoeKRowKZOV4nIjuEFKCp3ERk7xDb&#xa;Ons5bt62IG9Hxji5cbJMaq4CIMsQc1NHtQIDAQABMA0GCSqGSIb3DQEBBQUAA4GB&#xa;AIgFAJdNKSiApOmwMqBq4oIOrCOKUdDv9is3wJWaz1JeY3lop9WFPzr1RYE8Kcpg&#xa;+2+oIaiUwN8HDAsaMZGfWzv2rncBQOvyfqxARKzL6H+CZ+Rb5MQos7t5OtwHs1Ht&#xa;RU3A6pPOPLai+/ly1/aCwmqNTxpghTNFmVLloxT/HJao&#xa;-&#45;&#45;&#45;&#45;END CERTIFICATE-&#45;&#45;&#45;&#45;&#xa;</elem>
+</script><script id="ssl-date" output="2026-04-18T16:00:06+00:00; -6s from scanner time."><elem key="delta">-6.0</elem>
+<elem key="date">2026-04-18T16:00:06+00:00</elem>
+</script></port>
+<port protocol="tcp" portid="445"><state state="open" reason="syn-ack" reason_ttl="64"/><service name="netbios-ssn" product="Samba smbd" version="3.X - 4.X" extrainfo="workgroup: WORKGROUP" method="probed" conf="10"><cpe>cpe:/a:samba:samba</cpe></service></port>
+<port protocol="tcp" portid="5001"><state state="open" reason="syn-ack" reason_ttl="64"/><service name="java-object" product="Java Object Serialization" servicefp="SF-Port5001-TCP:V=7.94SVN%I=7%D=4/18%Time=69E3AA52%P=x86_64-pc-linux-gnu%r(NULL,4,&quot;\xac\xed\0\x05&quot;);" method="probed" conf="10"/></port>
+<port protocol="tcp" portid="8080"><state state="open" reason="syn-ack" reason_ttl="64"/><service name="http" product="Apache Tomcat/Coyote JSP engine" version="1.1" method="probed" conf="10"><cpe>cpe:/a:apache:coyote_http_connector:1.1</cpe></service><script id="http-title" output="Site doesn&apos;t have a title."></script></port>
+<port protocol="tcp" portid="8081"><state state="open" reason="syn-ack" reason_ttl="64"/><service name="http" product="Jetty" version="6.1.25" method="probed" conf="10"><cpe>cpe:/a:mortbay:jetty:6.1.25</cpe></service><script id="http-methods" output="&#xa;  Potentially risky methods: TRACE"><table key="Potentially risky methods">
+<elem>TRACE</elem>
+</table>
+</script><script id="http-title" output="Choose Your Path"><elem key="title">Choose Your Path</elem>
+</script><script id="http-server-header" output="Jetty(6.1.25)"><elem>Jetty(6.1.25)</elem>
+</script></port>
+</ports>
+<os><portused state="open" proto="tcp" portid="22"/>
+<portused state="closed" proto="tcp" portid="1"/>
+<portused state="closed" proto="udp" portid="42253"/>
+<osmatch name="Linux 2.6.17 - 2.6.36" accuracy="100" line="48803">
+<osclass type="general purpose" vendor="Linux" osfamily="Linux" osgen="2.6.X" accuracy="100"><cpe>cpe:/o:linux:linux_kernel:2.6</cpe></osclass>
+</osmatch>
+</os>
+<uptime seconds="6449" lastboot="Sat Apr 18 15:12:51 2026"/>
+<distance value="1"/>
+<tcpsequence index="208" difficulty="Good luck!" values="46E93DF2,47F5ECFD,476C22FD,479AD155,47BED138,47CAAD5C"/>
+<ipidsequence class="All zeros" values="0,0,0,0,0,0"/>
+<tcptssequence class="other" values="188659,188672,18868B,1886A4,1886BD,1886D6"/>
+<hostscript><script id="clock-skew" output="mean: -6s, deviation: 0s, median: -7s"><elem key="stddev">0</elem>
+<elem key="median">-7</elem>
+<elem key="mean">-6</elem>
+<elem key="count">2</elem>
+</script><script id="smb2-time" output="Protocol negotiation failed (SMB2)"/><script id="nbstat" output="NetBIOS name: OWASPBWA, NetBIOS user: &lt;unknown&gt;, NetBIOS MAC: &lt;unknown&gt; (unknown)"/><script id="smb-security-mode" output="&#xa;  account_used: guest&#xa;  authentication_level: user&#xa;  challenge_response: supported&#xa;  message_signing: disabled (dangerous, but default)"><elem key="account_used">guest</elem>
+<elem key="authentication_level">user</elem>
+<elem key="challenge_response">supported</elem>
+<elem key="message_signing">disabled</elem>
+</script></hostscript><times srtt="326" rttvar="30" to="100000"/>
+</host>
+<runstats><finished time="1776528020" timestr="Sat Apr 18 17:00:20 2026" summary="Nmap done at Sat Apr 18 17:00:20 2026; 1 IP address (1 host up) scanned in 74.71 seconds" elapsed="74.71" exit="success"/><hosts up="1" down="0" total="1"/>
+</runstats>
+</nmaprun>
