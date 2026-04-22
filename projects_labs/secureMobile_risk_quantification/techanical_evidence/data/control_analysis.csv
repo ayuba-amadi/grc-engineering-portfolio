@@ -1,0 +1,4 @@
+Control,Initial_Cost_USD,Annual_Maintenance_USD,Effectiveness,Risk_Reduction_USD,ROI,Payback_Years
+Web Application Firewall (WAF),150000,25000,0.75,24000000,159,0.006
+Multi-Factor Authentication (MFA),200000,30000,0.95,2850000,13.25,0.07
+API Security Gateway,350000,50000,0.9,675000,0.93,0.52

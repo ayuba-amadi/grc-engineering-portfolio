@@ -1,0 +1,6 @@
+Risk,Current_ALE_USD,Control,Residual_Risk_USD,Control_Cost_USD,Risk_Reduction_USD,
+Database Injection,31250000,Web Application Firewall (WAF),7812500,150000,24000000,
+Session Hijacking,3000000,Multi-Factor Authentication (MFA),150000,200000,2850000,
+API Authentication Bypass,750000,API Security Gateway,75000,350000,675000,
+,,,,,,
+,,,,,,

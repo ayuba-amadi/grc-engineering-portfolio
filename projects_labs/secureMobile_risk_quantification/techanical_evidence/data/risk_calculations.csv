@@ -1,0 +1,4 @@
+Vulnerability,SLE_USD,ARO,ALE_USD,Priority
+API Authentication Bypass,5000000,0.15,750000,Low
+Database Injection,125000000,0.25,31250000,High
+Session Hijacking,7500000,0.4,3000000,Medium
