@@ -1,0 +1,11 @@
+<botcomponent schemaname="ca_agent.knowledge.SharePointSearchSource.0">
+  <componenttype>16</componenttype>
+  <description>This knowledge source provides information found in NDPA_AI_Agent SharePoint.</description>
+  <iscustomizable>0</iscustomizable>
+  <name>NDPA_AI_Agent</name>
+  <parentbotid>
+    <schemaname>ca_agent</schemaname>
+  </parentbotid>
+  <statecode>0</statecode>
+  <statuscode>1</statuscode>
+</botcomponent>
