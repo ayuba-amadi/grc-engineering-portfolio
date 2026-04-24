@@ -1,4 +1,0 @@
-kind: KnowledgeSourceConfiguration
-source:
-  kind: SharePointSearchSource
-  site: https://copilotstudiotraining.sharepoint.com/sites/NDPA_AI_Agent/Shared%20Documents/NDPA_AI_Agent
